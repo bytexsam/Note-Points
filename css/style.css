@@ -1,0 +1,788 @@
+/*===== Google Fonts =====*/
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital@1&display=swap");
+
+/*===== Global CSS =====*/
+html {
+  scroll-behavior: smooth;
+}
+:root {
+  --main-color: #00a78e;
+  --shadow-black-100: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --black-900: #000;
+  --black-400: #646f87;
+  --black-100: #f7f7f7;
+  --white: #fff;
+  --black-alpha100: rgba(0, 0, 0, 0.05);
+}
+body {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  overflow-x: hidden;
+  background-color: var(--white);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+img {
+  vertical-align: middle;
+}
+.container {
+  max-width: 1140px;
+  margin: auto;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.align-items-center {
+  align-items: center;
+}
+.btn-1 {
+  background-color: var(--main-color);
+  padding: 15px 40px;
+  border: none;
+  color: var(--white);
+  border-radius: 5px;
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: 600;
+  transition: all 0.3s ease-out;
+}
+.btn-1:hover {
+  color: var(--white);
+  background-color: rgba(0, 167, 142, 0.7);
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+.text-align {
+  text-align: center;
+}
+.section-title {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-bottom: 30px;
+}
+.sub-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--main-color);
+}
+.section-title .main-title {
+  font-size: 35px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.section-title .line {
+  padding-top: 0px;
+}
+.section-title .line li {
+  display: inline-block;
+  background-color: var(--main-color);
+  border-radius: 50px;
+  height: 3px;
+}
+.section-title .line li:nth-of-type(1) {
+  width: 64px;
+}
+.section-title .line li:nth-of-type(2) {
+  width: 10px;
+}
+.section-title .line li:nth-of-type(3) {
+  width: 7px;
+}
+
+/*===== Navbar =====*/
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  padding: 10px;
+  transition: all 0.5s ease;
+}
+.navbar.sticky {
+  padding: 12px 25px;
+  background-color: var(--white);
+  box-shadow: var(--shadow-black-100);
+}
+.navbar .logo a {
+  font-family: "Kaushan Script", cursive;
+  font-size: 24px;
+  color: var(--black-900);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.navbar .logo a span {
+  font-family: "Kaushan Script", cursive;
+  color: var(--main-color);
+}
+.navbar .menu .nav-item {
+  display: inline-block;
+  position: relative;
+  margin-left: 36px;
+}
+.navbar .menu .nav-item .nav-link {
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  text-transform: capitalize;
+  padding: 10px 0;
+}
+.navbar.sticky .menu .nav-item .nav-link {
+  color: var(--main-color);
+}
+.navbar .nav-item .nav-link span {
+  width: 0;
+  height: 2px;
+  background-color: var(--white);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-radius: 50px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-out 0s;
+}
+.navbar .nav-item .nav-link span::before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: var(--white);
+  left: 110%;
+}
+.navbar .nav-item .nav-link span::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: var(--white);
+  left: 140%;
+}
+.navbar.sticky .nav-item a span,
+.navbar.sticky .nav-item a span::before,
+.navbar.sticky .nav-item a span::after {
+  background-color: var(--main-color);
+}
+.navbar .nav-item > .nav-link.active span,
+.navbar .nav-item:hover > .nav-link span {
+  opacity: 1;
+  visibility: visible;
+  width: 60%;
+}
+.navbar .nav-item > .nav-link.active span::before,
+.navbar .nav-item:hover > .nav-link span::before {
+  width: 20%;
+}
+.navbar .nav-item > .nav-link.active span::after,
+.navbar .nav-item:hover > .nav-link span::after {
+  width: 15%;
+}
+.menu-btn {
+  background-color: var(--main-color);
+  height: 34px;
+  width: 44px;
+  box-shadow: var(--shadow-black-100);
+  padding: 0;
+  border-radius: 5px;
+  line-height: 34px;
+  text-align: center;
+  color: var(--white);
+  font-size: 17px;
+  display: none;
+}
+.navbar.sticky .menu-btn {
+  color: var(--main-color);
+  background-color: var(--white);
+}
+
+/*===== Home =====*/
+.home-section {
+  position: relative;
+  background-color: var(--black-100);
+  z-index: 1;
+  overflow-x: hidden;
+  padding-top: 80px;
+}
+.header-social {
+  position: absolute;
+  top: 53%;
+  left: 50px;
+  transform: translateY(-53%);
+  border: 1px solid rgba(0, 167, 142, 0.21);
+  border-radius: 50px;
+}
+
+.home-section .home-text,
+.home-section .home-image {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 25px;
+}
+.home-section .home-text h4 {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--main-color);
+}
+.home-section .home-text h1 {
+  font-size: 50px;
+  font-weight: 700;
+  margin-top: 15px;
+  color: var(--black-900);
+}
+.home-section .home-text span {
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--black-900);
+  font-weight: 500;
+  display: block;
+  margin-top: 15px;
+}
+.home-section .home-text p {
+  font-size: 16px;
+  color: var(--black-400);
+  font-weight: 24px;
+  margin-top: 15px;
+}
+.home-section .home-text .btn {
+  display: inline-block;
+  margin-top: 15px;
+}
+.home-section .home-image .img-box img {
+  position: relative;
+  width: 100%;
+  z-index: 789;
+}
+.header-hero-shape {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+}
+.header-hero-shape::before {
+  position: absolute;
+  content: "";
+  width: 1000%;
+  height: 100%;
+  background-color: var(--main-color);
+  transform: skewX(20deg);
+  top: 0;
+  left: 0;
+}
+
+/*===== Notes Section =====*/
+.notes-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 40px 0;
+}
+
+.semester-container {
+  display: flex;
+  justify-content: center;
+  gap: 100px; /* Increased gap between boxes */
+  flex-wrap: wrap;
+  margin-top: 20px; /* Adds spacing from the heading */
+}
+
+.semester-box {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Adjust spacing between text elements */
+.semester-box h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.semester-box p {
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Add spacing between icon and heading */
+.semester-box img {
+  margin-bottom: 10px;
+}
+
+/* Add spacing to the Notes button */
+.semester-box button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #008060;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.semester-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.semester-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Icon styling */
+.semester-icon {
+  width: 50px;
+  height: 50px;
+  background: #009879;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Makes it a circle */
+  margin: 0 auto 10px;
+  font-size: 24px;
+}
+
+
+.notes-btn {
+  background: #009879;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.notes-btn:hover {
+  background: #007b63;
+  transform: scale(1.05);
+}
+/*footer*/
+footer {
+  background-color: var(--main-color);
+}
+footer .copyright-text {
+  padding: 10px 0;
+  font-size: 18px;
+  color: var(--black-100);
+  font-weight: 300;
+  margin: 10px 0 0;
+}
+
+/*Responsive*/
+@media (min-width: 1300px) and (max-width: 1399px) {
+  .header-social {
+    left: 10px;
+  }
+}
+@media (max-width: 1300px) {
+  .header-social {
+    display: none;
+  }
+}
+@media (max-width: 991px) {
+  .navbar .menu {
+    position: fixed;
+    left: -100%;
+    top: 80px;
+    flex-direction: column;
+    background-color: var(--main-color);
+    width: 100%;
+    text-align: center;
+    transition: all 0.5s ease;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+  }
+  .navbar .menu.active {
+    left: 0;
+  }
+  .navbar.sticky .menu {
+    background-color: var(--white);
+    top: 65px;
+  }
+  .navbar .menu .nav-item {
+    display: block;
+    margin: 6px 0;
+  }
+  .navbar.sticky .menu .nav-item .nav-link {
+ color: var(--main-color);
+  }
+  .navbar .nav-item .nav-link span {
+    display: none;
+  }
+  .navbar .menu-btn {
+    display: block;
+    z-index: 999;
+  }
+  .header-social {
+    display: block;
+    left: 90%;
+  }
+  .header-hero-shape {
+    display: none;
+  }
+  .home-section .home-image,
+  .home-section .home-text {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .home-section .home-image {
+    display: flex;
+    justify-content: center;
+  }
+  .home-image .img-box {
+    margin-top: 30px;
+  }
+  
+  /* Notes responsive */
+  .notes-container {
+    grid-template-columns: 1fr;
+  }
+  .semester {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .header-social {
+    left: 85%;
+  }
+}
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.links ul li {
+  margin-left: 20px;
+}
+
+.links ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu-btn {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Home Section Styles */
+.home-section {
+  padding: 100px 0;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.home-text h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.home-text p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.home-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Services Section Styles */
+.service-section {
+  padding: 50px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.semester-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.semester-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.notes-btn {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablets and Small Laptops (768px - 1024px) */
+@media (max-width: 1024px) {
+  .home-text h1 {
+      font-size: 36px;
+  }
+
+  .semester-box {
+      width: 45%;
+  }
+}
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .menu-btn {
+      display: block;
+  }
+
+  .links {
+      display: none;
+      width: 100%;
+  }
+
+  .links.active {
+      display: block;
+  }
+
+  .links ul {
+      flex-direction: column;
+  }
+
+  .links ul li {
+      margin: 10px 0;
+  }
+
+  .home-section {
+      padding: 50px 0;
+  }
+
+  .home-text h1 {
+      font-size: 32px;
+  }
+
+  .semester-box {
+      width: 45%;
+  }
+}
+
+/* Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  .home-text h1 {
+      font-size: 28px;
+  }
+
+  .home-text p {
+      font-size: 16px;
+  }
+
+  .semester-box {
+      width: 100%;
+  }
+
+  .btn {
+      padding: 8px 16px;
+      font-size: 14px;
+  }
+}
+
+/* Small Mobile Devices (320px and below) */
+@media (max-width: 320px) {
+  .home-text h1 {
+      font-size: 24px;
+  }
+
+  .home-text p {
+      font-size: 14px;
+  }
+
+  .btn {
+      padding: 6px 12px;
+      font-size: 12px;
+  }
+}
+/* General Section Styling */
+.pricing {
+  padding: 60px 0;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.section-title h5 {
+  font-size: 18px;
+  color: #007bff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-title h3 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* Pricing Item */
+.pricing-item {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
+  margin: 20px;
+  max-width: 400px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.pricing-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Header */
+.pricing-header h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Pricing Body */
+.pricing-body ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.pricing-body ul li {
+  font-size: 16px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  color: #555;
+}
+
+.pricing-body ul li:last-child {
+  border-bottom: none;
+}
+
+/* Download Links */
+.pricing-body ul li a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.pricing-body ul li a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.pricing-body ul li a i {
+  margin-right: 5px;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.pricing-item {
+  animation: fadeInUp 0.5s ease forwards;
+}
